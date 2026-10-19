@@ -108,7 +108,7 @@ jobs:
                       git stash
                       git checkout main
                       git pull origin main --rebase
-                      git stash pop -ErrorAction SilentlyContinue
+                      git stash pop --quiet 2>&1 | Out-Null
                       
                       git add rdp_info.txt
                       git commit -m "Update RDP: $portOnly [skip ci]" --allow-empty
